@@ -248,9 +248,6 @@ class Connection(object):
                 raise EofError(len(buffer))
             buffer += data
 
-        if buffer[0] != INTEGER:
-            raise IOError()
-
         length = _loads(buffer)
         buffer = self.recv(length)
         while len(buffer) < length:
